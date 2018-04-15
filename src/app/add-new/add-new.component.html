@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+<span style="font-size:30px;">COHORTS({{ cohorts }})</span>  <button class="btn btn-danger" (click)="navToHome()" style="float:right; margin-right:60px;"> Cancel</button>
+<div style="text-align: center;"><h2>ADD NEW COHORT </h2> </div>
+        <div class="col-sm-12">
+
+            <form role="form" method="post" id="reused_form">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="name"> TITLE:</label>
+                        <input type="text" class="form-control" placeholder="Title" (input)="gettitle($event)" maxlength="50">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="name"> COURSE ID:</label>
+                        <input type="text" class="form-control" placeholder="Course ID" (input)="getCouseId($event)" maxlength="50">
+                    </div>
+      <div class="col-sm-6 form-group">
+                        <label for="name"> START DATE:</label>
+                        <input type="date" class="form-control" (input)="getStartDate($event);" maxlength="50">
+                    </div>
+      <div class="col-sm-6 form-group">
+                        <label for="name"> END DATE:</label>
+                        <input type="date" class="form-control" (input)="getEndDate($event)" maxlength="50">
+                    </div>
+      <div class="col-sm-6 form-group">
+
+                    </div>
+      <div class="col-sm-6 form-group">
+                        <label for="name"> TRAINER:</label>
+                        <input type="text" class="form-control" placeholder="Trainer" (input)="getTrainer($event)" maxlength="50">
+                    </div>
+                </div>
+    <div class="row">
+    <div class=" col-sm-6">
+     <button class="btn btn-primary btn-block" (click)="submitForm();">Add Cohort</button><br>
+     </div>
+    </div>
+
+            </form>
+
+         </div>
+    </div>
+<br>
+<div class="panel panel-default">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Cohort ID</th>
+<th>Course ID</th>
+<th>Start Date</th>
+<th>End Date</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let s of superObj" >
+  <td>{{  superObj.indexOf(s) + 1}}</td>
+  <td>{{  s.course_id }}</td>
+  <td>{{ s.startDate }}<td>
+  <td>{{ s.endDate }}<td>
+  <td><a routerLink="/update/{{ s.index }}" class="btn btn-primary">Edit</a> &nbsp; &nbsp;
+  <a routerLink="delete/{{ superObj.indexOf(s) }}" class="btn btn-danger">Delete </a>
+  </td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+
+		<span style="font-size:25px;">COHORT( {{ cohorts }}) </span> <button style="float:right; margin-right:60px;" class="btn btn-primary" (click)="addnew(this);">NEW</button><br><br>
+			<div class="panel panel-default">
+      <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Cohort ID</th>
+        <th>Course ID</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of data">
+
+<td>{{  data.indexOf(s) + 1}}</td>
+<td>{{  s.course_id }}</td>
+<td>{{ s.startDate }}<td>
+<td>{{ s.endDate }}<td>
+<td><a routerLink="/update/{{ s.index }}" class="btn btn-primary">Edit</a> &nbsp; &nbsp;
+<a routerLink="delete/{{ data.indexOf(s) }}" class="btn btn-danger">Delete </a>
+</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>
